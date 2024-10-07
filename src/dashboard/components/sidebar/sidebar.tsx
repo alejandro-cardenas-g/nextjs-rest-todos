@@ -16,6 +16,14 @@ const pathItems = [
     path: "/dashboard/server-todos",
     title: "Server actions",
   },
+  {
+    path: "/dashboard/cookies",
+    title: "Cookies",
+  },
+  {
+    path: "/dashboard/products",
+    title: "Products",
+  },
 ];
 
 export const Sidebar = () => {
