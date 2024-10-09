@@ -5,16 +5,19 @@ import { IoTrashOutline } from "react-icons/io5";
 // import * as api from "@/todos/utils/todos-fetch";
 // import { useRouter } from "next/navigation";
 import { addTodo, deleteAllCompletedTodos } from "@/todos/actions";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export const NewTodo = () => {
+  const { data: session } = useSession();
   const [value, setValues] = useState("");
-  // const router = useRouter();
+  const router = useRouter();
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     // await api.createTodo(value);
-    await addTodo(value);
+    await addTodo(value, session?.user?.id);
     setValues("");
-    // router.refresh();
+    router.refresh();
   };
 
   const onDelete = async () => {

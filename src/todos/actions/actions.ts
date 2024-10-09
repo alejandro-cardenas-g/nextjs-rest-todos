@@ -26,11 +26,13 @@ export const toggleTodo = async (
   return updatedTodo;
 };
 
-export const addTodo = async (description: string) => {
+export const addTodo = async (description: string, userId?: string) => {
   try {
+    if (!userId) return;
     const todo = await prisma.todo.create({
       data: {
         description,
+        userId,
       },
     });
     revalidatePath("/dashboard/server-todos");

@@ -6,6 +6,10 @@ const nextConfig = {
         hostname: "tailus.io",
         protocol: "https",
       },
+      {
+        hostname: "avatars.githubusercontent.com",
+        protocol: "https",
+      },
     ],
   },
 };
